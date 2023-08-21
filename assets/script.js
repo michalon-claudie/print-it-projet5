@@ -47,6 +47,7 @@ function moveLeft()
 	activeDots();
     currentSlide = (currentSlide - 1) ;
     bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+	bannerP.innerHTML = slides[currentSlide].tagLine;
 }
 
 
@@ -55,6 +56,7 @@ function moveRight()
 	activeDots();
 	currentSlide = (currentSlide + 1);
 	bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+	bannerP.innerHTML = slides[currentSlide].tagLine;
 }
 
 /***Event***/
