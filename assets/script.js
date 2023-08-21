@@ -23,10 +23,8 @@ const bannerP = document.querySelector('.banner-p');
 const bannerSlide = document.querySelector('.banner-img')
 
 const left = document.querySelector ('.arrow_left');
-console.log(left);
 
 const right = document.querySelector ('.arrow_right');
-console.log(right);
 
 /***Functions***/
 
@@ -44,19 +42,26 @@ function activeDots()
 }
 function moveLeft()
 {
-	activeDots();
     currentSlide = (currentSlide - 1) ;
     bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
 	bannerP.innerHTML = slides[currentSlide].tagLine;
+	activeDots();
+	if (currentSlide=0)
+	{
+		currentSlide= 3;
+		bannerSlide.src = "./assets/images/slideshow" + slides[currentSlide].image;
+		bannerP.innerHTML = slides[currentSlide].tagLine;
+		activeDots();
+	}
 }
 
 
 function moveRight()
 {
-	activeDots();
 	currentSlide = (currentSlide + 1);
 	bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
 	bannerP.innerHTML = slides[currentSlide].tagLine;
+	activeDots();
 }
 
 /***Event***/
