@@ -17,10 +17,11 @@ const slides = [
 	}
 ]
 let currentSlide = 0;
-let numberOfSlides = slides.lenght;
 
 const dots = document.querySelectorAll ('.dot');
+
 const bannerP = document.querySelector('.banner-p');
+
 const bannerSlide = document.querySelector('.banner-img')
 
 const left = document.querySelector ('.arrow_left');
@@ -29,54 +30,48 @@ const right = document.querySelector ('.arrow_right');
 
 /***Functions***/
 
-function activeDots()
+function activateDot()
 {
 	dots.forEach((dot,index) =>
-	{
-		dot.classList.remove("dot_selected");
-		if (index === currentSlide)
 		{
-			dot.classList.add("dot_selected");
+			dot.classList.remove("dot_selected");
+			if (index === currentSlide)
+			{
+				dot.classList.add("dot_selected");
+			}
 		}
-	}
 	)
 }
 
 function moveLeft()
 {
-	if (currentSlide>4)
+	if (currentSlide === 0)
 	{
-		currentSlide = (currentSlide - 1);
-		bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
-		bannerP.innerHTML = slides[currentSlide].tagLine;
-		activeDots();
+		currentSlide = slides.length - 1;
 	}
 	else 
 	{
-		currentSlide = 3;
-		bannerSlide.src = "./assets/images/slideshow/" +slides[currentSlide].image;
-		bannerP.innerHTML = slides[currentSlide].tagLine;
-		activeDots()
+		currentSlide = (currentSlide - 1);
 	}
+	bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+	bannerP.innerHTML = slides[currentSlide].tagLine;
+	activateDot();
 }
 
 function moveRight()
 {
-	if (currentSlide<4)
+	if (currentSlide === slides.length - 1)
 	{
-		currentSlide = (currentSlide + 1);
-		bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
-		bannerP.innerHTML = slides[currentSlide].tagLine;
-		activeDots();
+		currentSlide = 0;
 	}
 	else 
 	{
-		currentSlide = 0;
-		bannerSlide.src = "./assets/images/slideshow/" +slides[currentSlide].image;
-		bannerP.innerHTML = slides[currentSlide].tagLine;
-		activeDots()
+		currentSlide = (currentSlide + 1);
 	}
-}
+	bannerSlide.src = "./assets/images/slideshow/" +slides[currentSlide].image;
+	bannerP.innerHTML = slides[currentSlide].tagLine;
+	activateDot()
+}		
 
 
 /***Event***/
