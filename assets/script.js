@@ -45,11 +45,16 @@ function activeDots()
 function moveLeft()
 {
 	activeDots();
+    currentSlide = (currentSlide - 1) ;
+    bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
 }
+
 
 function moveRight()
 {
 	activeDots();
+	currentSlide = (currentSlide + 1);
+	bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
 }
 
 /***Event***/
