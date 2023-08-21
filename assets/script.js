@@ -42,7 +42,15 @@ function activeDots()
 	}
 	)
 }
+function moveLeft()
+{
+	activeDots();
+}
 
+function moveRight()
+{
+	activeDots();
+}
 
 /***Event***/
 
