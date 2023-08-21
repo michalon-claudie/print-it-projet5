@@ -17,6 +17,7 @@ const slides = [
 	}
 ]
 let currentSlide = 0;
+let numberOfSlides = slides.lenght;
 
 const dots = document.querySelectorAll ('.dot');
 const bannerP = document.querySelector('.banner-p');
@@ -40,29 +41,43 @@ function activeDots()
 	}
 	)
 }
+
 function moveLeft()
 {
-    currentSlide = (currentSlide - 1) ;
-    bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
-	bannerP.innerHTML = slides[currentSlide].tagLine;
-	activeDots();
-	if (currentSlide=0)
+	if (currentSlide>numberOfSlides)
 	{
-		currentSlide= 3;
-		bannerSlide.src = "./assets/images/slideshow" + slides[currentSlide].image;
+		currentSlide = (currentSlide - 1);
+		bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
 		bannerP.innerHTML = slides[currentSlide].tagLine;
 		activeDots();
 	}
+	else 
+	{
+		currentSlide = 3;
+		bannerSlide.src = "./assets/images/slideshow/" +slides[currentSlide].image;
+		bannerP.innerHTML = slides[currentSlide].tagLine;
+		activeDots()
+	}
 }
-
 
 function moveRight()
 {
-	currentSlide = (currentSlide + 1);
-	bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
-	bannerP.innerHTML = slides[currentSlide].tagLine;
-	activeDots();
+	if (currentSlide<numberOfSlides)
+	{
+		currentSlide = (currentSlide + 1);
+		bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+		bannerP.innerHTML = slides[currentSlide].tagLine;
+		activeDots();
+	}
+	else 
+	{
+		currentSlide = 0;
+		bannerSlide.src = "./assets/images/slideshow/" +slides[currentSlide].image;
+		bannerP.innerHTML = slides[currentSlide].tagLine;
+		activeDots()
+	}
 }
+
 
 /***Event***/
 
