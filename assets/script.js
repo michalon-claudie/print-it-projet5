@@ -44,7 +44,7 @@ function activeDots()
 
 function moveLeft()
 {
-	if (currentSlide>numberOfSlides)
+	if (currentSlide>4)
 	{
 		currentSlide = (currentSlide - 1);
 		bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
@@ -62,7 +62,7 @@ function moveLeft()
 
 function moveRight()
 {
-	if (currentSlide<numberOfSlides)
+	if (currentSlide<4)
 	{
 		currentSlide = (currentSlide + 1);
 		bannerSlide.src = "./assets/images/slideshow/" + slides[currentSlide].image;
